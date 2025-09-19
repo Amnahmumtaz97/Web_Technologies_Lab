@@ -1,72 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>laboratory website</title>
-<style> 
-    .container{
-        margin-top:15px;
-        margin-left: 15px;
-        margin-right: 15px;
-        background-color:rgb(210, 230, 230);
-        padding:10px;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laboratory Website</title>
+
+    <style>
+      .container {
+        margin: 20px;
         position: relative;
-        
-    }
-    .landing-image{
+      }
+
+      .landing-image {
         position: absolute;
         width: 100%;
         height: 100%;
+        object-fit: cover;
         filter: blur(2px);
         z-index: 0;
-    }
-    .top-bar{
-        background-color: rgb(63, 60, 191);
-        margin: 10px;
-        padding:30px;
-        color: white;
-        text-align: center;
-        font-weight: bold;
+      }
+
+      .header {
         position: relative;
-    }
-    .header{
-        color: black;
-        background-color: rgb(160, 193, 159);
         display: flex;
-        position: relative;
+        justify-content: space-between;
+        padding: 40px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
         z-index: 1;
-    }
-    ul.menu li{
+      }
+
+      .menu ul {
+        list-style: none;
+        display: flex;
+        gap: 30px;
+        border: 2px dashed olive;
+      }
+
+      .menu ul li a {
+        color: white;
+        text-decoration: none;
         font-weight: bold;
-        display: inline;
-    }
-</style>
-</head>
-<body>
+        font-size: 16px;
+        font-family: "Arial Black", Arial, sans-serif;
+      }
+
+      .menu ul li a:hover {
+        color: #f093df;
+      }
+
+      .highlight {
+        font-weight: bolder;
+      }
+
+      .hero-title {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        margin-top: 100px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        padding-bottom: 30px;
+      }
+
+      .hero-title h1 {
+        color: white;
+        font-size: 39px;
+        letter-spacing: 12px;
+        font-weight: 900;
+        font-family: "Arial Black", Arial, sans-serif;
+      }
+
+      .introduction {
+        margin: 20px;
+        padding: 40px;
+        font-size: 33px;
+        font-weight: 700;
+        font-family: Arial, sans-serif;
+        color: #4f064c;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .section {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin: 20px;
+        padding: 20px;
+      }
+      .section-left {
+        grid-column: span 1;
+        background-color: #4f064c;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+      }
+      .section-left h1 {
+        font-size: 24px;
+        font-weight: bold;
+        font-family: "Arial Black", Arial, sans-serif;
+      }
+      .section div {
+        background-color: #b08989;
+        padding: 2px;
+        border-radius: 3px;
+        text-align: left;
+      }
+
+      .menu .logo {
+        height: 50px;
+      }
+      .section-right>h1{
+        color: white;
+        align-self: center;
+      }
+
+    </style>
+  </head>
+  <body>
     <div class="container">
-        
-            <img class= "landing-image" src="assets/sieuwert-otterloo-AuR4z-edGAU-unsplash.jpg" alt="">
-            
-    <div class="top-bar"> top-bar</div>
-        <div class="header">
-            <div class="menu">
-                <ul>
-                    <li><a href="1"></a>The laboratory</li>
-                    <li><a href="1"></a></li>
-                    <li><a href="2"></a></li>
-                    <li><a href="2"></a></li>
-                    <li><a href="2"></a></li>
-                </ul>
-            </div>
+      <img
+        class="landing-image"
+        src="assets/sieuwert-otterloo-AuR4z-edGAU-unsplash.jpg"
+        alt="Lab background"
+      />
 
-        </div> 
-    </div>
-    
-    <div> 
-        
+      <div class="header">
+        <div class="menu">
+          <ul>
+            <li><a href="#">The laboratory</a></li>
+            <li><a href="#">The research</a></li>
+          </ul>
+        </div>
+        <div class="menu">
+          <a href="#"
+            ><img class="logo" src="assets/retina-lab.png" alt=""
+          /></a>
+        </div>
+
+        <div class="menu">
+          <ul>
+            <li><a href="#">Offer</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#" class="highlight">Buy now</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hero-title">
+        <h1>THE LABORATORY</h1>
+      </div>
     </div>
 
-</div>
-</body>
+    <div class="introduction">
+      <p class="content">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+        fringilla, nunc at convallis facilisis, justo erat facilisis nunc, nec
+        convallis nunc nisl nec nisi.
+      </p>
+    </div>
+
+    <div class="section">
+      <div class="section-left"> <h1>Urna imperdiet lorem & non varius</h1></div>
+      <div class="section-right">
+        <h1>hello</h1>
+        <div><h1>hi</h1></div>
+        <div>hi</div>
+      </div>
+    </div>
+  </body>
 </html>
