@@ -4,37 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Laboratory Website</title>
-
-<style>
+    <style>
       .container {
         margin: 20px;
         position: relative;
+        height: 80vh;
+        background: linear-gradient(rgba(79, 6, 76, 0.6), rgba(100, 0, 47, 0.6)),
+          url("assets/sieuwert-otterloo-AuR4z-edGAU-unsplash.jpg") no-repeat
+            center center/cover;
       }
-
-      .landing-image {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        filter: blur(2px);
-        z-index: 0;
-      }
-
       .header {
         position: relative;
         display: flex;
         justify-content: space-between;
+        align-items: center;
         padding: 40px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.4);
         z-index: 1;
       }
-
       .menu ul {
         list-style: none;
         display: flex;
         gap: 30px;
+        margin: 0;
+        padding: 0;
       }
-
       .menu ul li a {
         color: white;
         text-decoration: none;
@@ -42,32 +36,34 @@
         font-size: 16px;
         font-family: "Arial Black", Arial, sans-serif;
       }
-
       .menu ul li a:hover {
         color: #93ebf0;
       }
-
+      .menu ul li a.highlight {
+        font-weight: bold;
+        color: white;
+      }
+      .menu ul li a.highlight:hover {
+        color: #93ebf0;
+      }
       .menu .logo {
         height: 50px;
       }
-      
       .hero-title {
         position: relative;
         z-index: 2;
         text-align: center;
         margin-top: 100px;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         padding-bottom: 30px;
       }
-
       .hero-title h1 {
         color: white;
-        font-size: 39px;
-        letter-spacing: 12px;
+        font-size: 45px;
+        letter-spacing: 20px;
         font-weight: 900;
+        text-shadow: #e893f0 2px 2px ;
         font-family: "Arial Black", Arial, sans-serif;
       }
-
       .introduction {
         margin: 20px;
         padding: 40px;
@@ -78,17 +74,15 @@
         justify-content: center;
         text-align: center;
       }
-
       .section {
-        display:flex;
+        display: flex;
         gap: 20px;
         margin: 20px;
         padding: 20px;
         align-items: center;
         justify-content: flex-start;
       }
-
-      .section1, .section2, .section3, .section4 {
+      .main-left {
         background-color: #4f064c;
         color: white;
         display: flex;
@@ -99,36 +93,22 @@
         text-align: left;
         height: 250px;
         width: 200px;
-
       }
-      .section1 h1, .section2 h1, .section3 h1, .section4 h1 {
-        color: white;
-        
+      .main-left h1 {
         font-size: 20px;
-        font-weight: bold;
-        font-family: "Arial Black", Arial, sans-serif;
+        font-weight: 700;
+        font-family: Arial, sans-serif;
       }
-
       .section div {
         background-color: #b08989;
         padding: 2px;
         border-radius: 3px;
         text-align: left;
       }
-      
     </style>
   </head>
-
-</body>
-
   <body>
     <div class="container">
-      <img
-        class="landing-image"
-        src="assets/sieuwert-otterloo-AuR4z-edGAU-unsplash.jpg"
-        alt="Lab background"
-      />
-
       <div class="header">
         <div class="menu">
           <ul>
@@ -137,11 +117,8 @@
           </ul>
         </div>
         <div class="menu">
-          <a href="#"
-            ><img class="logo" src="assets/retina-lab.png" alt=""
-          /></a>
+          <a href="#"><img class="logo" src="assets/retina-lab.png" alt="Logo" /></a>
         </div>
-
         <div class="menu">
           <ul>
             <li><a href="#">Offer</a></li>
@@ -150,27 +127,46 @@
           </ul>
         </div>
       </div>
-
       <div class="hero-title">
         <h1>THE LABORATORY</h1>
       </div>
-      </div>
-    
-
-     <div class="introduction">
-      <p>  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-        fringilla, nunc at convallis facilisis, justo erat facilisis nunc, nec
-        convallis nunc nisl nec nisi.
+    </div>
+    <div class="introduction">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam fringilla,
+        nunc at convallis facilisis, justo erat facilisis nunc, nec convallis nunc
+        nisl nec nisi.
       </p>
+    </div>
+    <div class="section">
+      <div class="main-left">
+        <h1>Urna imperdiet lorem & non varius</h1>
       </div>
-      <div class="section">
-  <div class="section1">
-    <div class="box1"><h1>Urna imperdiet lorem & non varius</h1></div>
-  </div>
-  <div class="section2"><h1>Section 2</h1></div>
-  <div class="section3"><h1>Section 3</h1></div>
-  <div class="section4"><h1>Section 4</h1></div>
-</div>
-  </div>
+      <div class="main-right">
+        <div class="main-right-title">
+          Nostrud exercitation ullamco laboris
+        </div>
+      </div>
+      <div class="main-right-content">
+        <div>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore.<br /><br />
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+          ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+          in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+          sint occaec.
+        </div>
+        <div>
+          Ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor.<br /><br />
+          Excepteur sint occaecat cupidatat non proident, sunt in eius.
+        </div>
+      </div>
+      <div class="main-right-btn">
+        <button>Consectetur adipisicing</button>
+      </div>
+    </div>
   </body>
 </html>
