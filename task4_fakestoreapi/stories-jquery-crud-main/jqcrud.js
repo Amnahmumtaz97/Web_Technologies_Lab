@@ -13,7 +13,7 @@ function displayStories() {
 
 function handleResponse(data) {
   var storiesList = $("#storiesList");
-  storiesList.empty();
+  storiesList.empty(); //empty the list before adding new items
 
   $.each(data, function (index, story) {
     storiesList.append(
