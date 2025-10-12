@@ -1,0 +1,12 @@
+#menu li{
+    display: inline-block;
+    padding: 1%;
+   
+}
+
+h1 {
+    color: blue;
+    border: 1px dashed black;
+    border-radius: 5px;
+    padding: 10px;
+}
