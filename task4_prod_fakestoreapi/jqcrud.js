@@ -9,7 +9,7 @@ function bindings() {
     let color =
       type === "success" ? "green" : type === "error" ? "red" : "blue";
 
-    $("#toast").remove(); // Remove old toast
+    $("#toast").remove();
 
     $("body").append(`
       <div id="toast" 
@@ -17,15 +17,11 @@ function bindings() {
                background:${color}; color:white; 
                padding:10px 20px; border-radius:6px; z-index:9999;">
         ${message}
-      </div>
-    `);
+      </div>  `);
 
     setTimeout(
-      () =>
-        $("#toast").fadeOut(500, function () {
-          $(this).remove();
-        }),
-      2000
+      () =>$("#toast").fadeOut(500, function () {
+          $(this).remove();}), 2000
     );
   }
 
