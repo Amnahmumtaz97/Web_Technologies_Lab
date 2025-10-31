@@ -163,20 +163,16 @@
     </div>
   </div>
 
-  <!-- JS -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script>
-    // Toggle card info
     $('input[name="payment"]').change(function () {
       $('#cardSection').toggleClass('d-none', !$('#card').is(':checked'));
     });
 
-    // Enable Place Order
     $('#terms').change(function () {
       $('#placeOrder').prop('disabled', !this.checked);
     });
 
-    // Alert on place order
     $('#placeOrder').click(function () {
       alert('Order placed successfully!');
     });
