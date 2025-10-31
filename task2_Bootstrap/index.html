@@ -1,174 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Checkout Page</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background: linear-gradient(rgba(79, 6, 76, 0.1), rgba(60, 0, 100, 0.1)),#f7f7f7;
-        margin: 0;
-        padding: 0;
-      }
-      .container {
-        margin: 0;
-        position: relative;
-        height: 100%;
-        background: linear-gradient(rgba(79, 6, 76, 0.6), rgba(159, 96, 8, 0.6)),
-          url("assets/home_lab_slider.jpg") no-repeat center center/cover;
-      }
-      .header {
-        position: relative;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 40px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-        z-index: 1;
-      }
-      .menu ul {
-        list-style: none;
-        display: flex;
-        gap: 30px;
-        margin: 0;
-        padding: 0;
-      }
-      .menu ul li a {
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-        font-size: 16px;
-        font-family: "Arial Black", Arial, sans-serif;
-      }
-      .menu ul li a:hover {
-        color: #93ebf0;
-      }
-      .menu ul li a.highlight {
-        font-weight: bold;
-        color: white;
-      }
-      .menu ul li a.highlight:hover {
-        color: #93ebf0;
-      }
-      .menu .logo {
-        height: 50px;
-        margin-right: 10px;
-      }
-      .checkout-container {
-        max-width: 300px;
-        margin: 50px;
-        background: #fff;
-        border-radius: 10px;
-        box-shadow: 0 2px 16px rgba(79, 6, 76, 0.08);
-        padding: 40px 30px;
-      }
-      .checkout-title {
-        color: #4f064c;
-        font-size: 30px;
-        font-family: "Arial Black", Arial, sans-serif;
-        text-align: center;
-        margin-bottom: 30px;
-        font-weight: bold;
-      }
-      .form-group {
-        margin-bottom: 22px;
-      }
-      label {
-        display: block;
-        margin-bottom: 8px;
-        color: #5a5662;
-        font-weight: 600;
-      }
-      input[type="text"],
-      input[type="email"],
-      input[type="password"] {
-        width: 100%;
-        padding: 12px;
-        border: 1px solid #b08989;
-        border-radius: 5px;
-        font-size: 16px;
-        box-sizing: border-box;
-      }
-      .checkout-btn {
-        width: 100%;
-        background: #4f064c;
-        color: #fff;
-        font-family: "Arial Black", Arial, sans-serif;
-        font-size: 18px;
-        font-weight: bold;
-        border: none;
-        border-radius: 6px;
-        padding: 16px 0;
-        margin-top: 18px;
-        cursor: pointer;
-        transition: background 0.2s;
-        letter-spacing: 0.1em;
-      }
-      .checkout-btn:hover {
-        background: #40089c;
-      }
-      .login-link {
-        display: block;
-        text-align: center;
-        margin-top: 18px;
-        color: #4f064c;
-        text-decoration: none;
-        font-weight: 600;
-      }
-      .login-link:hover {
-        text-decoration: underline;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="header">
-        <div class="menu">
-          <ul>
-            <li><a href="#">The laboratory</a></li>
-            <li><a href="#">The research</a></li>
-          </ul>
-        </div>
-        <div class="menu">
-          <a href="#">
-            <img class="logo" src="assets/retina-lab.png" alt="Logo" />
-          </a>
-        </div>
-        <div class="menu">
-          <ul>
-            <li><a href="#">Offer</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#" class="">Buy now</a></li>
-          </ul>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout Page</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body class="text-dark" style="background: linear-gradient(rgba(79, 6, 76, 0.6), rgba(159, 96, 8, 0.6)), url('assets/home_lab_slider.jpg') no-repeat center center/cover; min-height: 100vh;">
+
+  <!--  Header -->
+  <div class="bg-dark bg-opacity-75 text-center text-white fw-bold py-3">
+    <span class="text-white">Review (Checkout)</span>
+  </div>
+
+  <div class="container bg-white rounded-4 shadow-lg my-5 p-4 p-md-5">
+    <div class="row g-4">
+      
+      <!--leftcol takes 7/12 -->
+      <div class="col-md-7">
+        <h3 class="text-center fw-bold text-primary mb-4" style="color:#4f064c !important;">Checkout Details</h3>
+
+        <form id="checkoutForm" class="needs-validation" novalidate>
+          <div class="row g-3">
+            <div class="col-12">
+              <label class="form-label">Full Name</label>
+              <input type="text" class="form-control" required>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" required>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Phone</label>
+              <input type="text" class="form-control" required>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label">Address</label>
+              <input type="text" class="form-control" required>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">City</label>
+              <input type="text" class="form-control" required>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Postal Code</label>
+              <input type="text" class="form-control" required>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label">Country</label>
+              <select class="form-select" required> <!-- dropdown-->
+                <option value="">Select Country</option>
+                <option>Pakistan</option>
+                <option>USA</option>
+                <option>UK</option>
+              </select>
+            </div>
+
+            <div class="col-12 form-check">
+              <input type="checkbox" class="form-check-input" id="sameBilling">
+              <label for="sameBilling" class="form-check-label">Billing same as shipping</label>
+            </div>
+
+            <!--Payment area-->
+            <div class="col-12 mt-4">
+              <h5 class="text-center text-decoration-underline text-primary" style="color:#4f064c !important;">Payment Method</h5>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="payment" id="card" value="card">
+                <label class="form-check-label" for="card">Credit/Debit Card</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="payment" id="cod" value="cod">
+                <label class="form-check-label" for="cod">Cash on Delivery</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="payment" id="wallet" value="wallet">
+                <label class="form-check-label" for="wallet">Wallet</label>
+              </div>
+            </div>
+
+            <!-- Card Section takes 12/12-->
+            <div id="cardSection" class="col-12 mt-3 d-none">
+              <div class="mb-2">
+                <label class="form-label">Cardholder Name</label>
+                <input type="text" class="form-control">
+              </div>
+              <div class="mb-2">
+                <label class="form-label">Card Number</label>
+                <input type="text" class="form-control" maxlength="16">
+              </div>
+              <div class="mb-2">
+                <label class="form-label">Expiry</label>
+                <input type="text" class="form-control" placeholder="MM/YY">
+              </div>
+              <div class="mb-2">
+                <label class="form-label">CVV</label>
+                <input type="text" class="form-control" maxlength="3">
+              </div>
+            </div>
+
+            <div class="col-12 mt-4">
+              <input type="checkbox" id="terms" class="form-check-input">
+              <label for="terms" class="form-check-label">I agree to the terms and conditions</label>
+            </div>
+
+            <div class="col-12">
+              <button type="button" id="placeOrder" class="btn w-100 text-white fw-bold" style="background:#4f064c;" disabled>
+                Place Order
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!--Right col takes 5/12-->
+      <div class="col-md-5">
+        <div class="position-sticky" style="top:20px;">
+          <div class="card border-0 shadow">
+
+            <div class="card-header text-center fw-bold text-white" style="background:#4f064c;">
+              Order Summary
+            </div>
+
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between">
+                <span>Laptop</span><span>$40</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between">
+                <span>Phone</span><span>$60</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between fw-semibold">
+                <span>Subtotal</span><span>$100</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between">
+                <span>Shipping</span><span>$10</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between">
+                <span>Tax</span><span>$5</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between fw-bold">
+                <span>Total</span><span>$115</span>
+              </li>
+            </ul>
+            <div class="card-body">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Enter coupon code">
+                <button class="btn text-white" style="background:#4f064c;">Apply</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      
-    <div class="checkout-container">
-      <div class="checkout-title">Checkout</div>
-      <form>
-        <div class="form-group">
-          <label for="fullname">Full Name</label>
-          <input type="text" id="fullname" name="fullname" required />
-        </div>
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" required />
-        </div>
-        <div class="form-group">
-          <label for="address">Shipping Address</label>
-          <input type="text" id="address" name="address" required />
-        </div>
-        <div class="form-group">
-          <label for="card">Card Number</label>
-          <input type="text" id="card" name="card" maxlength="16" required />
-        </div>
-        <button class="checkout-btn" type="submit">Place Order</button>
-      </form>
-      <a class="login-link" href="login.html">Already have an account? Login</a>
-    </div>
-    </div>
-  </body>
 
-  <script src="jquery/script.js"></script>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+    // Toggle card info
+    $('input[name="payment"]').change(function () {
+      $('#cardSection').toggleClass('d-none', !$('#card').is(':checked'));
+    });
+
+    // Enable Place Order
+    $('#terms').change(function () {
+      $('#placeOrder').prop('disabled', !this.checked);
+    });
+
+    // Alert on place order
+    $('#placeOrder').click(function () {
+      alert('Order placed successfully!');
+    });
+  </script>
+</body>
 </html>

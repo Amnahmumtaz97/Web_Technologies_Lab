@@ -63,7 +63,6 @@
         margin-top: 150px;
         margin-left: 70px;
         transition: color 0.4s, letter-spacing 0.4s;
-        
       }
       .hero-title h1 {
         align-self: center;
@@ -139,7 +138,6 @@
       .feature-title {
         color: #4f064c;
         font-size: 18px;
-        font-weight: 200;
         margin-top: 10px;
         margin-bottom: 0;
         font-family: "Arial Black", Arial, sans-serif;
@@ -294,20 +292,13 @@
         margin-top: 60px;
         margin-bottom: 0;
         position: relative;
+        align-items: center;
         width: 100%;
         background: transparent;
       }
-      .explore-dot {
-        position: absolute;
-        left: 50%;
-        top: 0;
-        width: 6px;
-        height: 6px;
-        background: #4f064c;
-        border-radius: 50%;
-      }
       .explore-btn {
-        width: 100%;
+        width: 70%;
+        margin: auto;
         background: #40089c;
         color: #fff;
         font-family: "Arial Black", Arial, sans-serif;
@@ -316,7 +307,7 @@
         letter-spacing: 18px;
         text-align: center;
         padding: 55px 0 55px 0;
-        margin-top: 120px;
+        margin-top: 70px;
         letter-spacing: 0.5em;
         display: block;
       }
@@ -324,6 +315,64 @@
         letter-spacing: 0.3em;
         font-weight: 700;
         font-size: 18px;
+      }
+      .site-footer {
+        width: 100%;
+        text-align: center;
+        padding: 40px 0 20px 0;
+        background: #fff;
+        color: #888;
+        font-size: 1.15rem;
+        letter-spacing: 0.01em;
+      }
+      .footer-logo {
+        margin: 0 auto 18px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 36px;
+      }
+      .footer-text {
+        color: #888;
+        font-family: Arial, sans-serif;
+      }
+      .footer-text span {
+        font-family: inherit;
+      }
+      @media (max-width: 900px) {
+        .features,
+        .research-cards {
+          flex-direction: column;
+          align-items: center;
+        }
+        nav {
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+      @media (max-width: 600px) {
+        .hero h1 {
+          font-size: 1rem;
+        }
+        .features,
+        .research-cards {
+          gap: 10px;
+        }
+        .feature,
+        .research-card {
+          min-width: 100px;
+          max-width: 100%;
+          padding: 10px 2px;
+          flex-direction: column;
+        }
+        .contact-section img {
+          height: 100px;
+        
+        }
+        .explore-btn {
+          font-size: 1rem;
+          padding: 12px 0;
+        }
       }
     </style>
   </head>
@@ -350,11 +399,14 @@
           </ul>
         </div>
       </div>
+    
       <div class="hero-title">
         <h1>BIOTECH</h1>
         <h5>We are biotechnology laboratory</h5>
       </div>
     </div>
+
+
     <div class="introduction">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
@@ -362,7 +414,7 @@
         convallis nunc nisl nec nisi.
       </p>
     </div>
-    <!-- after intro part -->
+
     <div class="main-section">
       <div class="main-left2">
         <h1>
@@ -495,5 +547,20 @@
       <div class="explore-btn"><span>EXPLORE MORE</span></div>
     </div>
 
+    <footer class="site-footer">
+      <div class="footer-logo">
+        <img
+          class="footer-icon"
+          src="assets/retina-lab.png"
+          alt="Laboratory Logo"
+        />
+      </div>
+      <div class="footer-text">
+        © 2021 Betheme by
+        <span style="color: #4f064c; font-weight: bold">Muffin group</span> |
+        All Rights Reserved | Powered by
+        <span style="color: #40089c; font-weight: bold">WordPress</span>
+      </div>
+    </footer>
   </body>
 </html>

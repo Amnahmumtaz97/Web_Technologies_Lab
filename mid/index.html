@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laboratory Website with CV</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      /* Main container */
+      .container {
+        margin: 0;
+        position: relative;
+        height: 100vh;
+        background: linear-gradient(rgba(79, 6, 76, 0.6), rgba(159, 96, 8, 0.6)),
+          url("assets/home_lab_slider.jpg") no-repeat center center/cover;
+      }
+
+      /* Header */
+      .header {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 40px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        z-index: 1;
+      }
+
+      .menu ul {
+        list-style: none;
+        display: flex;
+        gap: 30px;
+        margin: 0;
+        padding: 0;
+      }
+
+      .menu ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 16px;
+        font-family: "Arial Black", Arial, sans-serif;
+      }
+
+      .menu ul li a:hover {
+        color: #93ebf0;
+      }
+
+      .menu .logo {
+        height: 50px;
+        margin-right: 10px;
+      }
+
+      /* Hero title */
+      .hero-title {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        z-index: 2;
+        margin-top: 150px;
+        margin-left: 70px;
+        transition: color 0.4s, letter-spacing 0.4s;
+      }
+
+      .hero-title h1 {
+        align-self: center;
+        color: white;
+        font-size: 40px;
+        letter-spacing: 95px;
+        font-family: "Arial Black", Arial, sans-serif;
+      }
+
+      .hero-title h5 {
+        color: rgba(255, 255, 255, 0.653);
+        font-size: 14px;
+        position: relative;
+        top: 100px;
+        margin-right: 50px;
+        font-family: "Arial Black", Arial, sans-serif;
+      }
+
+      /* CV Section */
+      .cv-introduction {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: flex-start;
+        margin: 60px 40px;
+        gap: 40px;
+        background: #f9f9f9;
+        padding: 40px 20px;
+        border-radius: 12px;
+      }
+
+      .cv-introduction > div {
+        flex: 1 1 200px;
+        min-width: 200px;
+        background: #fff;
+        border-radius: 8px;
+        padding: 15px 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        margin-bottom: 20px;
+        transition: background 0.3s;
+      }
+
+      .cv-introduction > div:hover {
+        background: #f0f0f0;
+      }
+
+      /* Headings */
+      .personal-info h1 {
+        color: #4f064c;
+        font-family: "Arial Black", Arial, sans-serif;
+        font-size: 28px;
+        margin-bottom: 20px;
+      }
+
+      .personal-info h2 {
+        color: #5a5662;
+        font-family: Arial, sans-serif;
+        font-size: 18px;
+        margin: 5px 0;
+      }
+
+      .cv-heading {
+        font-family: "Arial Black", Arial, sans-serif;
+        color: #4f064c;
+        font-size: 22px;
+        cursor: pointer;
+        margin: 0 0 10px 0;
+      }
+
+      /* Hidden content initially */
+      .education-info .cv-content,
+      .skills-info .cv-content,
+      .exp-project-info .cv-content,
+      .contact-info .cv-content {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.5s ease, opacity 0.5s ease;
+      }
+
+      /* Reveal on hover */
+      .education-info:hover .cv-content,
+      .skills-info:hover .cv-content,
+      .exp-project-info:hover .cv-content,
+      .contact-info:hover .cv-content {
+        max-height: 500px; /* adjust as needed */
+        opacity: 1;
+      }
+
+      /* Section content styling */
+      .cv-content {
+        font-size: 16px;
+        font-family: Arial, sans-serif;
+        color: #4f064c;
+        line-height: 1.5;
+      }
+
+      .cv-content ul {
+        padding-left: 20px;
+      }
+      .site-footer {
+        width: 100%;
+        text-align: center;
+        padding: 40px 0 20px 0;
+        background: #fff;
+        color: #888;
+        font-size: 1.15rem;
+        letter-spacing: 0.01em;
+      }
+      .footer-logo {
+        margin: 0 auto 18px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 36px;
+      }
+      .footer-text {
+        color: #888;
+        font-family: Arial, sans-serif;
+      }
+      .footer-text span {
+        font-family: inherit;
+      }
+      /* Responsive */
+      @media (max-width: 900px) {
+        .cv-introduction {
+          flex-direction: column;
+          gap: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Main Container -->
+    <div class="container">
+      <div class="header">
+        <div class="menu">
+          <ul>
+            <li><a href="#">The laboratory</a></li>
+            <li><a href="#">The research</a></li>
+          </ul>
+        </div>
+        <div class="menu">
+          <a href="#"
+            ><img class="logo" src="assets/retina-lab.png" alt="Logo"
+          /></a>
+        </div>
+        <div class="menu">
+          <ul>
+            <li><a href="#">Offer</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Buy now</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hero-title">
+        <h1>BIOTECH</h1>
+        <h5>We are biotechnology laboratory</h5>
+      </div>
+    </div>
+
+    <div class="cv-introduction">
+      <div class="personal-info">
+        <h1>Personal CV</h1>
+        <h2>Name: Amnah Mumtaz Ahmad</h2>
+        <h2>Email: iamnah97@gmail.com</h2>
+        <h2>Phone: +92 300 1234567</h2>
+        <h2>Location: Lahore, Pakistan</h2>
+      </div>
+
+      <div class="education-info">
+        <h2 class="cv-heading">Education</h2>
+        <div class="cv-content">
+          <p>Bachelor of Science in Biotechnology</p>
+          <p>University of Punjab, 2021–2025</p>
+          <p>CGPA: 3.8 / 4.0</p>
+        </div>
+      </div>
+
+      <div class="skills-info">
+        <h2 class="cv-heading">Skills</h2>
+        <div class="cv-content">
+          <ul>
+            <li>
+              Laboratory Techniques (PCR, Gel Electrophoresis,
+              Spectrophotometry)
+            </li>
+            <li>Data Analysis (Excel, SPSS)</li>
+            <li>Scientific Writing</li>
+            <li>Teamwork & Communication</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-project-info">
+        <h2 class="cv-heading">Experience / Projects</h2>
+        <div class="cv-content">
+          <p>Intern – XYZ Biotech Lab (Jun 2024 – Aug 2024)</p>
+          <p>- Assisted in DNA extraction and analysis</p>
+          <p>- Contributed to microbial resistance study</p>
+          <p>
+            Final Year Project: “Analysis of Antimicrobial Properties of Local
+            Plants”
+          </p>
+        </div>
+      </div>
+
+      <div class="contact-info">
+        <h2 class="cv-heading">Contact Information</h2>
+        <div class="cv-content">
+          <p>Email: iamnah97@gmail.com</p>
+          <p>LinkedIn: linkedin.com/in/amnah-ahmad</p>
+          <p>Phone: +92 300 1234567</p>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-logo">
+        <img
+          class="footer-icon"
+          src="assets/retina-lab.png"
+          alt="Laboratory Logo"
+        />
+      </div>
+      <div class="footer-text">
+        © 2021 Betheme by
+        <span style="color: #4f064c; font-weight: bold">Muffin group</span> |
+        All Rights Reserved | Powered by
+        <span style="color: #40089c; font-weight: bold">WordPress</span>
+      </div>
+    </footer>
+  </body>
+</html>
