@@ -18,7 +18,6 @@ function bindings() {
                padding:10px 20px; border-radius:6px; z-index:9999;">
         ${message}
       </div>  `);
-
     setTimeout(
       () =>$("#toast").fadeOut(500, function () {
           $(this).remove();}), 2000
