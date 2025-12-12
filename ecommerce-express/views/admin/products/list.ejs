@@ -1,0 +1,26 @@
+
+
+<section>
+  <h2 style="text-align:center;margin-bottom:24px;">🛠️ Admin: Products</h2>
+  <div style="text-align:right;margin-bottom:10px;">
+    <a class="btn" href="/admin/products/add">+ Add New Product</a>
+  </div>
+  <table class="admin-table">
+    <thead><tr><th>Name</th><th>Price</th><th>Category</th><th>Actions</th></tr></thead>
+    <tbody>
+      <% products.forEach(p=>{ %>
+        <tr>
+          <td><%= p.name %></td>
+          <td>$<%= p.price.toFixed(2) %></td>
+          <td><%= p.category %></td>
+          <td>
+            <a class="btn" style="padding:4px 10px;font-size:0.95em;" href="/admin/products/<%= p._id %>/edit">Edit</a>
+            <form style="display:inline" method="post" action="/admin/products/<%= p._id %>?_method=DELETE">
+              <button style="padding:4px 10px;font-size:0.95em;background:#c0392b;" type="submit" onclick="return confirm('Delete?')">Delete</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</section>

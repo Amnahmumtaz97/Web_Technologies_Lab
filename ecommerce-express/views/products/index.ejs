@@ -1,0 +1,41 @@
+
+
+
+<section>
+  <h2 style="text-align:center;margin-bottom:24px;">🛒 Products</h2>
+
+  <form id="filters" method="get" action="/products" style="margin-bottom:24px;">
+    <input type="text" name="q" value="<%= query.q||'' %>" placeholder="Search name...">
+    <select name="category">
+      <option value="">All categories</option>
+      <% categories.forEach(c=>{ %>
+        <option value="<%= c %>" <%= (query.category===c)?'selected':'' %>><%= c %></option>
+      <% }) %>
+    </select>
+    <input type="number" name="minPrice" placeholder="Min" value="<%= query.minPrice||'' %>">
+    <input type="number" name="maxPrice" placeholder="Max" value="<%= query.maxPrice||'' %>">
+    <input type="hidden" name="limit" value="<%= limit %>">
+    <button type="submit">Filter</button>
+  </form>
+
+  <div class="products-grid">
+    <% products.forEach(p=>{ %>
+      <article class="card">
+        <img src="<%= p.image %>" alt="<%= p.name %>">
+        <h3><a href="/products/<%= p._id %>"><%= p.name %></a></h3>
+        <p class="price">$<%= p.price.toFixed(2) %></p>
+        <p class="category"><%= p.category %></p>
+      </article>
+    <% }) %>
+  </div>
+
+  <div class="pagination" style="justify-content:center;">
+    <% if (page>1) { %>
+      <a class="btn" href="?<%= new URLSearchParams(Object.assign({}, query, {page: page-1})).toString() %>">Prev</a>
+    <% } %>
+    <span>Page <%= page %> of <%= pages %></span>
+    <% if (page < pages) { %>
+      <a class="btn" href="?<%= new URLSearchParams(Object.assign({}, query, {page: page+1})).toString() %>">Next</a>
+    <% } %>
+  </div>
+</section>

@@ -1,0 +1,6 @@
+body{font-family:Arial,Helvetica,sans-serif;margin:0}
+.admin-header{background:#111;color:#fff;padding:12px 20px;display:flex;justify-content:space-between;align-items:center}
+.admin-container{max-width:1000px;margin:20px auto;padding:10px}
+.admin-table{width:100%;border-collapse:collapse}
+.admin-table th, .admin-table td{border:1px solid #ddd;padding:8px}
+.btn{display:inline-block;padding:6px 10px;background:#0b7; color:#fff;text-decoration:none;border-radius:4px}
