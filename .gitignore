@@ -7,3 +7,7 @@
 /backend
 /mid-labexam
 /theorymid-practice
+/ecommerce-express/seed.js
+/eccomerce-express/.env.example
+/eccomerce-express/node_modules
+/backend/node_modules
