@@ -71,8 +71,12 @@ exports.renderAdd = (req, res) => {
 
 exports.createProduct = async (req, res) => {
   try {
-    const { name, price, category, image, description } = req.body;
-    const p = new Product({ name, price, category, image, description });
+    const { name, price, category, description } = req.body;
+    let imagePath = '/images/placeholder.png';
+    if (req.file) {
+      imagePath = '/uploads/' + req.file.filename;
+    }
+    const p = new Product({ name, price, category, image: imagePath, description });
     await p.save();
     res.redirect('/admin/products');
   } catch (err) {
@@ -94,8 +98,14 @@ exports.renderEdit = async (req, res) => {
 
 exports.updateProduct = async (req, res) => {
   try {
-    const { name, price, category, image, description } = req.body;
-    await Product.findByIdAndUpdate(req.params.id, { name, price, category, image, description });
+    const { name, price, category, description } = req.body;
+    let update = { name, price, category, description };
+    if (req.file) {
+      update.image = '/uploads/' + req.file.filename;
+    } else if (req.body.image) {
+      update.image = req.body.image;
+    }
+    await Product.findByIdAndUpdate(req.params.id, update);
     res.redirect('/admin/products');
   } catch (err) {
     console.error(err);

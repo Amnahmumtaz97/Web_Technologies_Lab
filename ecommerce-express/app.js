@@ -3,16 +3,23 @@ const expressLayouts = require('express-ejs-layouts');
 const path = require('path');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
+
 const dotenv = require('dotenv');
 dotenv.config();
+
+const morgan = require('morgan');
+const session = require('express-session');
 
 const connectDB = require('./config/db');
 connectDB();
 
 const shopRoutes = require('./routes/shop');
 const adminRoutes = require('./routes/admin');
+const authRoutes = require('./routes/auth');
 
 const app = express();
+// HTTP request logger
+app.use(morgan('dev'));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(expressLayouts);
@@ -23,8 +30,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(methodOverride('_method'));
+app.use(session({
+  secret: 'your-secret-key',
+  resave: false,
+  saveUninitialized: false
+}));
 
 // routes
+app.use(authRoutes);
 app.use('/', shopRoutes);
 // Use admin layout for admin routes
 app.use('/admin', (req, res, next) => {
