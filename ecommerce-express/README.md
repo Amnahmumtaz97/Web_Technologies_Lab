@@ -9,12 +9,12 @@
 3. Seed sample data:
    ```bash
    npm run seed
-   ```
+   ``'
 4. Start server:
    ```bash
    npm start
    ```
-5. Open http://localhost:3000/products and http://localhost:3000/admin/products
+5. Open http://localhost:4000/products and http://localhost:4000/admin/products
 
 ## Features implemented
 - Express with EJS templating
