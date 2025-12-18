@@ -1,4 +1,4 @@
-# E-commerce Express Scaffold
+# E-commerce Express Laboratory Website
 
 ## Setup
 1. Copy `.env.example` to `.env` and edit `MONGO_URI` if needed.
