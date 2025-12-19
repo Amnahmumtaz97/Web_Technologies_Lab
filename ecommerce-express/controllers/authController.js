@@ -1,5 +1,5 @@
 const User = require('../models/User');
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs'); // Password hashing library
 
 exports.renderRegister = (req, res) => {
   res.render('auth/register', { title: 'Register' });
@@ -7,14 +7,17 @@ exports.renderRegister = (req, res) => {
 
 exports.register = async (req, res) => {
   try {
-    const { username, email, password } = req.body;
+    const { username, email, password, role } = req.body;
     const hash = await bcrypt.hash(password, 10);
-    const user = new User({ username, email, password: hash });
-    await user.save();
-    res.redirect('/login');
-  } catch (err) {
+    const user = new User({ username, email, password: hash, role });
+    await user.save();// database me save karna
+    req.flash('success', 'Registration successful! Please log in.');
+    res.redirect('/login'); //Session banne ke baad user login rehta hai jab tak logout na kare.
+  }
+   catch (err) {
     console.error(err);
-    res.status(400).send('Registration failed');
+    req.flash('error', 'Registration failed');
+    res.redirect('/register');
   }
 };
 
@@ -26,18 +29,37 @@ exports.login = async (req, res) => {
   try {
     const { username, password } = req.body;
     const user = await User.findOne({ username });
-    if (!user) return res.status(400).send('Invalid credentials');
+    if (!user) {
+      req.flash('error', 'Invalid credentials');
+      return res.redirect('/login');
+    }
     const match = await bcrypt.compare(password, user.password);
-    if (!match) return res.status(400).send('Invalid credentials');
-    // Set session or cookie here
-    res.redirect('/');
+    if (!match) {
+      req.flash('error', 'Invalid credentials');
+      return res.redirect('/login');
+    }
+    req.session.user = {
+      _id: user._id,
+      username: user.username,
+      email: user.email,
+      role: user.role
+    };
+    req.flash('success', 'Login successful!');
+    if (user.role === 'admin') {
+      res.redirect('/layouts/admin');
+    } else {
+      res.redirect('/products');
+    }
   } catch (err) {
     console.error(err);
-    res.status(400).send('Login failed');
+    req.flash('error', 'Login failed');
+    res.redirect('/login');
   }
 };
 
 exports.logout = (req, res) => {
-  // Destroy session or clear cookie here
-  res.redirect('/login');
+  req.session.destroy(() => { //Session destroy hone se user completely logout ho jata hai.
+    req.flash('success', 'Logged out successfully.');
+    res.redirect('/login');
+  });
 };

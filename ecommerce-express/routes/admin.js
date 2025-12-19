@@ -16,6 +16,8 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
+
+
 // Admin layout routes
 router.get('/', (req, res) => res.redirect('/admin/products'));
 
