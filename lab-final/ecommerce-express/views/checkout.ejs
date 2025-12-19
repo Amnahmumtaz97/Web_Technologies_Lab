@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background: #f8fafc;
+    }
+    .card {
+      border-radius: 1rem;
+      box-shadow: 0 2px 16px rgba(33, 150, 243, 0.08);
+    }
+    .form-label {
+      font-weight: 500;
+      color: #2d2d2d;
+    }
+    .btn {
+      border-radius: 0.5rem;
+      font-weight: 600;
+      transition: box-shadow 0.2s;
+    }
+    .btn:active, .btn:focus {
+      box-shadow: 0 0 0 0.2rem #3b82f6;
+    }
+    .alert-info {
+      background: #e3f2fd;
+      color: #1976d2;
+      border: none;
+    }
+    .alert-warning {
+      background: #fff3cd;
+      color: #856404;
+      border: none;
+    }
+    .form-select, .form-control {
+      border-radius: 0.5rem;
+      border: 1px solid #e0e0e0;
+    }
+    .fw-semibold {
+      font-weight: 600;
+    }
+    .fs-5 {
+      font-size: 1.25rem;
+    }
+    .text-primary {
+      color: #3b82f6 !important;
+    }
+    .text-success {
+      color: #27ae60 !important;
+    }
+    .badge {
+      font-size: 1em;
+      padding: 0.5em 1em;
+      border-radius: 0.5em;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container py-5" style="min-height:80vh;">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8">
+      <div class="card border-0 shadow-lg rounded-4 p-4" style="background:#fff;">
+        <h2 class="mb-4" style="font-family:'Segoe UI',sans-serif;color:#2d2d2d;">Checkout</h2>
+        <form action="/checkout" method="POST" class="row g-3">
+          <div class="col-12 mb-2">
+            <label class="form-label fw-semibold">Full name <span style="color:#e74c3c">*</span></label>
+            <input type="text" class="form-control" name="customerName" required>
+          </div>
+          <div class="col-12 mb-2">
+            <label class="form-label fw-semibold">Email address <span style="color:#e74c3c">*</span></label>
+            <input type="email" class="form-control" name="email" required>
+          </div>
+          <div class="col-12 mb-2">
+            <label class="form-label fw-semibold">Phone number <span style="color:#e74c3c">*</span></label>
+            <input type="text" class="form-control" name="phone" required>
+          </div>
+          <div class="col-12 mb-2">
+            <label class="form-label fw-semibold">Country <span style="color:#e74c3c">*</span></label>
+            <select class="form-select" name="country" required>
+              <option value="">Choose country</option>
+              <option>Pakistan</option>
+              <option>USA</option>
+              <option>UK</option>
+            </select>
+          </div>
+          <div class="col-md-4 mb-2">
+            <label class="form-label">City</label>
+            <input type="text" class="form-control" name="city">
+          </div>
+          <div class="col-md-4 mb-2">
+            <label class="form-label">State</label>
+            <input type="text" class="form-control" name="state">
+          </div>
+          <div class="col-md-4 mb-2">
+            <label class="form-label">ZIP Code</label>
+            <input type="text" class="form-control" name="zip">
+          </div>
+          <div class="col-12 mb-2">
+            <input type="checkbox" name="terms" required>
+            <label class="form-label">I have read and agree to the Terms and Conditions.</label>
+          </div>
+          <div class="col-12 mb-2">
+            <button type="submit" class="btn w-100" style="background:#3b82f6;color:#fff;font-weight:600;font-size:1.1em;">Pay Now</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-lg-5 col-md-8 mt-4 mt-lg-0">
+      <div class="card border-0 shadow-lg rounded-4 p-4" style="background:#fff;">
+        <h4 class="mb-3" style="font-family:'Segoe UI',sans-serif;color:#2d2d2d;">Review your cart</h4>
+        <% if (cart && cart.length) { %>
+        <% cart.forEach(item => { %>
+          <div class="d-flex align-items-center mb-3">
+            <img src="<%= item.image || '/images/placeholder.png' %>" alt="<%= item.name %>" style="width:60px;height:60px;object-fit:cover;border-radius:8px;margin-right:16px;">
+            <div>
+              <div class="fw-semibold"><%= item.name %></div>
+              <div class="text-muted" style="font-size:0.95em;"><%= item.quantity %> x $<%= item.price.toFixed(2) %></div>
+            </div>
+          </div>
+        <% }) %>
+        <hr>
+        <div class="mb-2">Subtotal <span class="float-end">$<%= total.toFixed(2) %></span></div>
+        <div class="mb-2">Shipping <span class="float-end">$5.00</span></div>
+        <div class="mb-2">Discount <span class="float-end text-success">-$0.00</span></div>
+        <div class="fw-bold fs-5">Total <span class="float-end text-primary">$<%= (total+5).toFixed(2) %></span></div>
+        <% } else { %>
+        <div class="alert alert-warning text-center">Your cart is empty.</div>
+        <% } %>
+        <div class="mt-4">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

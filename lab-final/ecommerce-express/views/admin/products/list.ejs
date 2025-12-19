@@ -1,0 +1,29 @@
+<section>
+  <h2 style="text-align:center;margin-bottom:24px;color:#4f064c;font-family:'Segoe UI',sans-serif;">🛠️ Admin: Products</h2>
+  <div style="text-align:right;margin-bottom:10px;">
+    <a class="btn" href="/admin/products/add" style="background:#27ae60;color:#fff;font-weight:600;">+ Add New Product</a>
+    <a class="btn" style="margin-left:10px;background:#2196f3;color:#fff;font-weight:600;" href="/admin/orders">View Orders</a>
+  </div>
+  <table class="admin-table table table-bordered table-hover" style="background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(79,6,76,0.08);">
+    <thead style="background:#f3e6fa;">
+      <tr style="color:#4f064c;">
+        <th>Name</th><th>Price</th><th>Category</th><th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% products.forEach(p=>{ %>
+        <tr>
+          <td><%= p.name %></td>
+          <td>$<%= p.price.toFixed(2) %></td>
+          <td><%= p.category %></td>
+          <td>
+            <a class="btn" style="padding:4px 10px;font-size:0.95em;background:#27ae60;color:#fff;font-weight:600;" href="/admin/products/<%= p._id %>/edit">Edit</a>
+            <form style="display:inline" method="post" action="/admin/products/<%= p._id %>?_method=DELETE">
+              <button style="padding:4px 10px;font-size:0.95em;background:#c0392b;color:#fff;font-weight:600;" type="submit" onclick="return confirm('Delete?')">Delete</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</section>

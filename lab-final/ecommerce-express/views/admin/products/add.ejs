@@ -1,0 +1,34 @@
+<section class="product-form-section">
+  <div class="product-form-card">
+    <h2>Add Product</h2>
+    <form
+      method="post"
+      action="/admin/products"
+      class="product-form"
+      enctype="multipart/form-data"
+    >
+      <label>Name <input required name="name" class="input-field" /></label>
+      <label
+        >Price
+        <input
+          required
+          name="price"
+          type="number"
+          step="0.01"
+          class="input-field"
+      /></label>
+      <label
+        >Category <input required name="category" class="input-field"
+      /></label>
+      <label
+        >Image
+        <input type="file" name="image" accept="image/*" class="input-field"
+      /></label>
+      <label
+        >Description
+        <textarea name="description" class="input-field"></textarea>
+      </label>
+      <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+  </div>
+</section>

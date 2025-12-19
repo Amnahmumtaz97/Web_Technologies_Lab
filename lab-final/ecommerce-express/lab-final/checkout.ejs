@@ -1,0 +1,28 @@
+<%- include('../views/layouts/main') %>
+<h2>Checkout</h2>
+<form action="/lab-final/checkout" method="POST">
+  <table>
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Subtotal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% cart.forEach(item => { %>
+        <tr>
+          <td><%= item.name %></td>
+          <td><%= item.quantity %></td>
+          <td><%= item.price %></td>
+          <td><%= item.price * item.quantity %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+  <p>Total: <%= total %></p>
+  <label>Name: <input type="text" name="customerName" required></label><br>
+  <label>Email: <input type="email" name="email" required></label><br>
+  <button type="submit">Place Order</button>
+</form>

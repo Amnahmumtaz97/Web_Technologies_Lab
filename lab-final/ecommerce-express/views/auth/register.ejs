@@ -1,0 +1,16 @@
+<section class="auth-section">
+  <h2>Register</h2>
+  <form method="post" action="/register" class="auth-form">
+    <label>Username <input required name="username"></label>
+    <label>Email <input required name="email" type="email"></label>
+    <label>Password <input required name="password" type="password"></label>
+    <label>Role
+      <select name="role" required>
+        <option value="customer" selected>Customer</option>
+        <option value="admin">Admin</option>
+      </select>
+    </label>
+    <button type="submit">Register</button>
+  </form>
+  <p>Already have an account? <a href="/login">Login</a></p>
+</section>
